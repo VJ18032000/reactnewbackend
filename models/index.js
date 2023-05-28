@@ -30,7 +30,12 @@ const db={}
 db.Sequelize=Sequelize
 db.sequelize=sequelize
 
-db.register=require("./registerModel.js")(sequelize,Datatypes)
+db.register=require("./loginModel")(sequelize,Datatypes)
+db.permission=require("./permission")(sequelize,Datatypes)
+db.leave=require("./leave_letter")(sequelize,Datatypes)
+db.task=require("./task")(sequelize,Datatypes)
+db.attendance=require("./attendance")(sequelize,Datatypes)
+db.timesheet=require("./timesheet")(sequelize,Datatypes)
 
 db.sequelize.sync({force:false})
 .then(()=>{
